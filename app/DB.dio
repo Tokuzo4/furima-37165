@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+    <diagram id="gKINh36_m2NlC0IQyHAX" name="ページ1">
+        <mxGraphModel dx="935" dy="474" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="user" style="swimlane;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="nickname&lt;br&gt;e-mail&lt;br&gt;encrypted__password&lt;br&gt;last_name&lt;br&gt;first_name&lt;br&gt;birthday" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="3">
+                    <mxGeometry x="10" y="40" width="130" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="items" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="40" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="item_name&lt;br&gt;image&lt;br&gt;category&lt;br&gt;price&lt;br&gt;postage&lt;br&gt;Seller_name&lt;br&gt;user_id" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="5">
+                    <mxGeometry x="10" y="30" width="80" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="240" y="139.5" as="sourcePoint"/>
+                        <mxPoint x="399" y="139.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="buyer" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="280" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="user_id&lt;br&gt;address" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="8">
+                    <mxGeometry x="10" y="45" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="420" y="370" as="sourcePoint"/>
+                        <mxPoint x="510" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="220" y="390" as="sourcePoint"/>
+                        <mxPoint x="130" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
