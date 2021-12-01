@@ -25,8 +25,8 @@
                 <mxCell id="8" value="buyer" style="swimlane;" vertex="1" parent="1">
                     <mxGeometry x="220" y="260" width="200" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="user_id&lt;br&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="8">
-                    <mxGeometry x="15" y="40" width="50" height="20" as="geometry"/>
+                <mxCell id="11" value="user_id&lt;br&gt;item_id" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="8">
+                    <mxGeometry x="15" y="35" width="50" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;" edge="1" parent="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
@@ -41,10 +41,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="19" value="address" style="swimlane;" vertex="1" parent="1">
-                    <mxGeometry x="220" y="450" width="200" height="210" as="geometry"/>
+                    <mxGeometry x="220" y="450" width="200" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="postal_code&lt;br&gt;prefecture&lt;br&gt;city&lt;br&gt;town&lt;br&gt;chome_address&lt;br&gt;building_name" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="19">
-                    <mxGeometry x="10" y="30" width="100" height="90" as="geometry"/>
+                <mxCell id="20" value="postal_code&lt;br&gt;prefecture&lt;br&gt;city&lt;br&gt;town&lt;br&gt;chome_address&lt;br&gt;building_name&lt;br&gt;telephone_number" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="19">
+                    <mxGeometry y="25" width="120" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" edge="1" parent="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
