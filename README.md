@@ -28,42 +28,73 @@ Things you may want to cover:
 | Column     | Type   | Options            |
 | ---------- | ------ | ------------------ |
 | nickname   | string | null: false        |
-| email      | string | null: false UNIQUE |
+| email      | string | null: false unique: true |
 | encrypted_password  | string | null:false|
-| last_name  | text   | null: false        |
-| first_name | text   | null: false        |
-| birthday   | string | null: false        |
+| last_name  | string | null: false        |
+| last_name_furigana  | string | null: false |
+| first_name | string | null: false        |
+| first_name_furigana | string | null: false |
+| birthday   | date   | null: false        |
 
 ### Association
 
 - has_many :items
-- has_one :buyer
+- has_many :buyer
 
 ## items テーブル
 
 | Column        | Type     | Options     |
 | ------------- | -------- | ----------- |
-| item_name     | string     | null: false |
-| image         | text     | null: false |
-| category      | string   | null: false |
-| price         | string     | null: false |
-| postage       | string   | null: false |
-| seller_name   | text     | null: false |
+| item_name     | string   | null: false |
+| item_explanation | text  | null: false |
+| item_category | string   | null: false |
+| item_status   | string   | null: false |
+| item_price    | string   | null: false |
+| item_postage  | string   | null: false |
+| item_shipping_area|string| null: false |
+| item_days_to_ship |string| null: false |
 |user|references|null: false,foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- belongs_to :buyer
+- has_one :buyer
 
 ## buyer テーブル
 
 | Column        | Type       | Options   |
 | ------------- | ---------- | --------- |
 |user|references|null: false,foreign_key: true|
-| address       | references | null: false |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :items
+- has_one :address
+
+## address テーブル
+
+| Column        | Type       | Options   |
+| ------------- | ---------- | --------- |
+| postal_code   | string   | null: false |
+
+
+### Association
+
+- belongs_to :user
+- belongs_to :items
+
+## address テーブル
+
+| Column        | Type   | Options            |
+| ------------- | ------ | ------------------ |
+| postal_code   | string | null: false        |
+| prefecture    | string | null: false        |
+| city          | string | null: false        |
+| town          | string | null: false        |
+| chome_address | string | null: false        |
+| building_name | string | null: true         |
+
+### Association
+
+- belongs_to :buyer
