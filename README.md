@@ -38,27 +38,27 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :item
+- has_many :items
 - has_many :buyers
 
 ## items テーブル
 
 | Column        | Type     | Options     |
 | ------------- | -------- | ----------- |
-| item_name     | string   | null: false |
-| item_explanation | text  | null: false |
-| item_category | integer  | null: false |
-| item_status   | integer  | null: false |
-| item_price    | integer  | null: false |
-| item_postage  | integer  | null: false |
-| item_shipping_area|integer | null: false |
-| item_days_to_ship |integer | null: false |
+| name     | string   | null: false |
+| explanation | text  | null: false |
+| category | integer  | null: false |
+| status   | integer  | null: false |
+| price    | integer  | null: false |
+| postage  | integer  | null: false |
+| shipping_area|integer | null: false |
+| days_to_ship |integer | null: false |
 |user|references|null: false,foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- has_one :buyers
+- has_one :buyer
 
 ## buyers テーブル
 
@@ -77,14 +77,13 @@ Things you may want to cover:
 
 | Column           | Type    | Options            |
 | ---------------- | ------- | ------------------ |
-| postal_code      | integer | null: false        |
-| prefecture       | integer | null: false        |
+| postal_code      | string  | null: false        |
+| prefecture_id    | integer | null: false        |
 | city             | string  | null: false        |
-| town             | string  | null: false        |
 | chome_address    | string  | null: false        |
 | building_name    | string  |                    |
-| telephone_number | integer | null: false        |
-
+| telephone_number | string  | null: false        |
+| buyer  |references|null: false,foreign_key: true|
 ### Association
 
-- belongs_to :buyers
+- belongs_to :buyer
