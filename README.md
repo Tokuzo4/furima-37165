@@ -75,15 +75,15 @@ Things you may want to cover:
 
 ## address テーブル
 
-| Column           | Type    | Options            |
-| ---------------- | ------- | ------------------ |
-| postal_code      | string  | null: false        |
-| prefecture_id    | integer | null: false        |
-| city             | string  | null: false        |
-| chome_address    | string  | null: false        |
-| building_name    | string  |                    |
-| telephone_number | string  | null: false        |
-| buyer  |references|null: false,foreign_key: true|
+| Column          | Type    | Options            |
+| --------------- | ------- | ------------------ |
+| postal_code     | string  | null: false        |
+| prefecture_id   | integer | null: false        |
+| city            | string  | null: false        |
+| chome_address   | string  | null: false        |
+| building_name   | string  |                    |
+| telephone_number| string  | null: false        |
+| buyer |references|null: false,foreign_key: true|
 ### Association
 
 - belongs_to :buyer
