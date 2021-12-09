@@ -10,6 +10,13 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
 
+    it 'nicknameが空だと登録できない' do
+      user = FactoryBot.build(:user)
+      user.nickname = ''
+      user.valid?
+      expect(user.errors.full_messages).to include("Nickname can't be blank")
+    end
+
     it 'メールアドレスが一意性であること。' do
       @user.save
       another_user = FactoryBot.build(:user)
@@ -42,18 +49,63 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include('Password is invalid')
     end
 
+    it 'passwordが半角英数字混合での入力が必須であること' do
+      @user.password = 'a1a1a1'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+
+    it 'passwordは全角では登録できない' do
+      @user.password = 'ａ１ａ１ａ１'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password is invalid')
+    end
+
     it 'パスワードとパスワード（確認）は、値の一致が必須であること。' do
+      user = FactoryBot.build(:user)
       @user.password = '123456'
       @user.password_confirmation = '12345'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
 
-    it 'nicknameが空だと登録できない' do
+    it 'お名前(全角)は、名字と名前がそれぞれ必須であること。' do
       user = FactoryBot.build(:user)
-      user.nickname = ''
+      user.last_name = ''
+      user.first_name = ''
       user.valid?
-      expect(user.errors.full_messages).to include("Nickname can't be blank")
+      expect(user.errors.full_messages).to include('Last name is invalid', "First name can't be blank", 'First name is invalid')
+    end
+
+    it 'お名前カナ(全角)は、名字と名前がそれぞれ必須であること。' do
+      user = FactoryBot.build(:user)
+      user.last_name_furigana = ''
+      user.first_name_furigana = ''
+      user.valid?
+      expect(user.errors.full_messages).to include('Last name furigana is invalid', "First name furigana can't be blank",
+                                                   'First name furigana is invalid')
+    end
+
+    it 'お名前カナ(全角)は、全角（カタカナ）での入力が必須であること。' do
+      user = FactoryBot.build(:user)
+      user.last_name_furigana = 'a'
+      user.first_name_furigana = 'a'
+      user.valid?
+      expect(user.errors.full_messages).to include('Last name furigana is invalid', 'First name furigana is invalid')
+    end
+
+    it '名字(全角)は、全角（漢字・ひらがな・カタカナ）での入力が必須であること。' do
+      user = FactoryBot.build(:user)
+      user.last_name = 'a'
+      user.valid?
+      expect(user.errors.full_messages).to include('Last name is invalid')
+    end
+
+    it '名前(全角)は、全角（漢字・ひらがな・カタカナ）での入力が必須であること。' do
+      user = FactoryBot.build(:user)
+      user.first_name = 'a'
+      user.valid?
+      expect(user.errors.full_messages).to include('First name is invalid')
     end
 
     it 'emailが空では登録できない' do
