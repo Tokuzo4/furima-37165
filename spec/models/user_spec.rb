@@ -81,17 +81,26 @@ RSpec.describe User, type: :model do
 
     it 'お名前カナ(全角)は、名字と名前がそれぞれ必須であること。' do
       @user.last_name_furigana = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name furigana can't be blank", 'Last name furigana is invalid')
+    end
+
+    it 'お名前カナ(全角)は、名字と名前がそれぞれ必須であること。' do
       @user.first_name_furigana = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include('Last name furigana is invalid', "First name furigana can't be blank",
-                                                    'First name furigana is invalid')
+      expect(@user.errors.full_messages).to include("First name furigana can't be blank", 'First name furigana is invalid')
     end
 
     it 'お名前カナ(全角)は、全角（カタカナ）での入力が必須であること。' do
       @user.last_name_furigana = 'a'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Last name furigana is invalid')
+    end
+
+    it 'お名前カナ(全角)は、全角（カタカナ）での入力が必須であること。' do
       @user.first_name_furigana = 'a'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Last name furigana is invalid', 'First name furigana is invalid')
+      expect(@user.errors.full_messages).to include('First name furigana is invalid')
     end
 
     it '名字(全角)は、全角（漢字・ひらがな・カタカナ）での入力が必須であること。' do
