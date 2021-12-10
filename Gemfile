@@ -60,4 +60,8 @@ group :development do
 end
 gem 'active_hash'
 gem 'devise'
+<<<<<<< Updated upstream
 gem 'pry-rails'
+=======
+gem 'pry-rails'
+>>>>>>> Stashed changes
