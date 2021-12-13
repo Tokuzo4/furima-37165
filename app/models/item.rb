@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  class Item < ApplicationRecord
-    belongs_to :users
+  extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to :category
     has_one_attached :image
   
     validates :content, presence: true, unless: :was_attached?
@@ -17,6 +17,4 @@ class Item < ApplicationRecord
     validates :shipping_area_id, presence: true
     validates :days_to_ship_id, presence: true
     validates :users, presence: true
-  end
-  
 end
