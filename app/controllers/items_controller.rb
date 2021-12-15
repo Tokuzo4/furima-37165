@@ -1,10 +1,17 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
+
   def new
     @item = Item.new
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -13,10 +20,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explanatation)
-  end
-
-  def message_params
-    params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :category_id, :status_id, :price, :postage_id, :shipping_area_id,
+                                 :days_to_ship_id, :image).merge(user_id: current_user.id)
   end
 end
