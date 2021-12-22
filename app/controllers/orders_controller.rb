@@ -5,9 +5,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    if @order.valid?
-      @order.save
+    @items = Item.new(order_params)
+    if @items.valid?
+      @items.save
       return redirect_to root_path
     else
       render 'index'
@@ -17,7 +17,8 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price, :name)
+    params.require(:order).permit(:price).merge(token: params[:token])
+    # params.require(:address).permit(:name, :postal_code, :prefecture_id, :city, :chome_address, :building_name, :telephone_number)
   end
 
 end
