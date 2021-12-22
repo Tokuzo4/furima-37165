@@ -6,13 +6,10 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :prefecture
   belongs_to :days_to_ship
+  has_one :order_history
   has_one_attached :image
 
-  validates :image, presence: true, unless: :was_attached?
-  def was_attached?
-    image.attached?
-  end
-
+  validates :image, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1, message: "category can't be blank" }
