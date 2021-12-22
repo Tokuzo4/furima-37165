@@ -9,11 +9,11 @@ class OrderHistoryAddress
     validates :city
     validates :chome_address
     validates :telephone_number
+    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   end
-  validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   def save
-    @order = Order.create(item_id: item_id, user_id: user_id)
+    order_history = OrderHistory.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, chome_address: chome_address,
-                   building_name: building_name, order_id: order.id)
+                   building_name: building_name, order_history_id: order_history.id)
   end
 end

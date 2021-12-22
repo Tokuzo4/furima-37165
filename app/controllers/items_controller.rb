@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @items.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path
     else
       render :edit
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @items.destroy
+    if @item.destroy
       redirect_to root_path
     else
       redirect_to root_path
@@ -50,10 +50,10 @@ class ItemsController < ApplicationController
   end
 
   def set_items
-    @items = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user == @items.user
+    redirect_to root_path unless current_user == @item.user
   end
 end
