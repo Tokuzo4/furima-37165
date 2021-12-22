@@ -18,7 +18,7 @@ class BuyersController < ApplicationController
   private
 
   def donation_params
-    params.require(:buyer_address).permit(:postal_code, :prefecture, :city, :chome_address, :building_name, :price).merge(user_id: current_user.id)
+    params.require(:buyer_address).permit(:postal_code, :prefecture, :city, :chome_address, :building_name,
+                                          :price).merge(user_id: current_user.id)
   end
-
 end

@@ -1,14 +1,17 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @items = Item.find(params[:item_id])
+    @order_history_address = OrderHistoryAddress.new
+    redirect_to root_path if @items.user.id == current_user.id || @items.orders_history.present?
   end
 
   def create
-    @items = Item.new(order_params)
-    if @items.valid?
-      @items.save
-      return redirect_to root_path
+    @order_history_address = OrderHistoryAddress.new(order_params)
+    if @order_history_address.valid?
+      @order_history_address.save
+      redirect_to root_path
     else
       render 'index'
     end
@@ -16,9 +19,13 @@ class OrdersController < ApplicationController
 
   private
 
-  def order_params
-    params.require(:order).permit(:price).merge(token: params[:token])
-    # params.require(:address).permit(:name, :postal_code, :prefecture_id, :city, :chome_address, :building_name, :telephone_number)
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
+  def order_params
+    params.require(:order_history_address).permit(:postal_code, :prefecture_id, :city, :chome_address, :building_name, :telephone_number).merge(
+      user_id: current_user.id, items_id: params[:items_id]
+    )
+  end
 end

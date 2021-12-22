@@ -68,10 +68,11 @@
         <%= f.text_field :cvc, class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
       </div>
     </div>
+    <% end %>
 
     <%# 配送先の入力 %>
     <div class='shipping-address-form'>
-    <%# <%= form_with model: @order_address, url: orders_path, local: true do |f| %>
+    <%= form_with model: @orders, url: item_orders_path, local: true do |f| %>
       <h1 class='info-input-haedline'>
         配送先入力
       </h1>
