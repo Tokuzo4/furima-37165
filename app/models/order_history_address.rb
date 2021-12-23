@@ -14,7 +14,7 @@ class OrderHistoryAddress
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   end
   def save
-    order_history = OrderHistory.create(user_id: user_id, item_id: item_id, token: token)
+    order_history = OrderHistory.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, chome_address: chome_address,
                    building_name: building_name, telephone_number: telephone_number, order_history_id: order_history.id)
   end
