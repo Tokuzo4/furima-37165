@@ -6,7 +6,7 @@ class OrderHistoryAddress
     validates :user_id
     validates :item_id
     validates :token
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'Postal code は半角文字で記述する必要があります' }
     validates :city
     validates :chome_address
     VALID_TELEPHONE_NUMBER_REGEX = /\A\d{10,11}\z/
