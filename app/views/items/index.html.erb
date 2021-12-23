@@ -128,13 +128,14 @@
     </div>
 
     <ul class='item-lists'>
+    <% if @item.blank? %>
      <% @items.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id), method: :get do %>
         <div class='item-img-content'>
           <%= image_tag item.image.variant(resize: '250x250'), class: 'message-image' if item.image.attached? %>
           <%# 商品が売れていればsold outを表示しましょう %>
-         <% if @items.blank? %>
+         <% if item.order_history.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
@@ -150,15 +151,14 @@
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
-         <% end %>
+         
             </div>
           </div>
         </div>
-
+        <% end %>
       </li>
-  <% end %>
-
-      <% if @items.blank? %>
+      <% end %>
+       <% else %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
