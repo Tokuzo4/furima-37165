@@ -16,6 +16,6 @@ class OrderHistoryAddress
   def save
     order_history = OrderHistory.create(user_id: user_id, item_id: item_id, token: token)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, chome_address: chome_address,
-                   building_name: building_name, order_history_id: order_history.id)
+                   building_name: building_name, telephone_number: telephone_number, order_history_id: order_history.id)
   end
 end
