@@ -129,7 +129,7 @@
 
     <ul class='item-lists'>
     <% if @item.present? %>
-     <% @items.each do |item| %>
+     <% @item.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id), method: :get do %>
         <div class='item-img-content'>
