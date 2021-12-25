@@ -119,21 +119,19 @@
     </ul>
   </div>
   <%# /FURIMAの特徴 %>
-
-  <%# 商品一覧 %>
   <div class='item-contents'>
+    <%# 商品一覧 %>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <div class="subtitle" >
       新規投稿商品
     </div>
-
     <ul class='item-lists'>
-    <% if @item.present? %>
-     <% @item.each do |item| %>
+    <% if @items.present? %>
+     <% @items.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id), method: :get do %>
         <div class='item-img-content'>
-          <%= image_tag item.image.variant(resize: '250x250'), class: 'message-image' if item.image.attached? %>
+          <%= image_tag item.image.variant(resize: '250x250'), class: 'message-image' %>
           <%# 商品が売れていればsold outを表示しましょう %>
          <% if item.order_history.present? %>
           <div class='sold-out'>
