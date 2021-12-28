@@ -1,4 +1,3 @@
-window.addEventListener("load", pay);
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const submit = document.getElementById("button");
@@ -19,7 +18,7 @@ const pay = () => {
       if (status == 200) {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
-        const tokenObj = `<input value=${token} type="hidden" name='token'>`;
+        const tokenObj = `<input value=${token} name='token' type="hidden"> `;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
 
@@ -33,3 +32,4 @@ const pay = () => {
   });
 };
 
+window.addEventListener("load", pay);
