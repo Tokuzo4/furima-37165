@@ -1,3 +1,4 @@
+window.addEventListener("load", pay);
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const submit = document.getElementById("button");
@@ -32,4 +33,3 @@ const pay = () => {
   });
 };
 
-window.addEventListener("load", pay);
