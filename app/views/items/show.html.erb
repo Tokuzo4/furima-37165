@@ -5,10 +5,9 @@
     <h2 class="name">
       <%= @item.name %>
     </h2>
-    
     <div class="item-img-content">
      <%= image_tag @item.image.variant(resize: '250x250'), class: 'message-image' %>
-      <% if @item.blank? %>
+      <% if @item.order_history.present? %>
        <div class="sold-out">
         <span>Sold Out!!</span>
        </div>
