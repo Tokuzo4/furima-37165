@@ -16,8 +16,9 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, name:'item[image]', id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]', data: {index: 0}, id:"item-image" %>
       </div>
+      <div id="previews"></div>
     </div>
 
     <div class="new-items">

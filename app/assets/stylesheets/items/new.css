@@ -89,6 +89,13 @@
   margin-bottom: 15px;
 }
 
+.preview-image {
+  height: 100px;
+  width: 100px;
+  /* 縦横比を保ったまま、画像を縦横100pxのサイズに収めるプロパティです */
+  object-fit: contain;
+}
+
 /* /商品画像 */
 
 /* 商品名と商品説明 */
@@ -226,4 +233,34 @@
 
 .inc {
   font-size: 13px;
+}
+
+.other-images {
+  display: flex;
+}
+
+.other-image {
+  margin-right: 10px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+.main-image {
+  height: 200px;
+  width: 200px;
+}
+
+.item-img-content{
+  display: flex;
+  justify-content: space-around;
+  object-fit: contain;
+}
+
+.message-image {
+  height: 250px;
+  width: 250px;
 }

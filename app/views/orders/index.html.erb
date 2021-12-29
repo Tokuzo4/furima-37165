@@ -7,7 +7,14 @@
     </h1>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-      <%= image_tag @item.image, class: 'buy-item-img' %>
+     <%= image_tag @item.images[0].variant(resize: '250x250'), class: 'message-image' %>
+      <div class="other-images">
+    <% @item.images[1..-1].each do |image| %>
+      <div class="other-image">
+        <%= image_tag image.variant(resize: '250x250') %>
+      </div>
+    <%end%>
+  </div>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
           <%= @item.name %>

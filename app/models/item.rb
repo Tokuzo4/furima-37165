@@ -7,9 +7,10 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :days_to_ship
   has_one :order_history
-  has_one_attached :image
+  has_many_attached :images
 
-  validates :image, presence: true
+  validates :images, presence: true
+  validates :images, length: { minimum: 1, maximum: 5, message: 'は1枚以上5枚以下にしてください' }
   validates :name, presence: true
   validates :explanation, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1, message: "category can't be blank" }

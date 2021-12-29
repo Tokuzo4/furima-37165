@@ -66,3 +66,4 @@ gem 'image_processing', '~> 1.2'
 gem 'factory_bot_rails'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
