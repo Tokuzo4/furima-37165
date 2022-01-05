@@ -307,3 +307,24 @@ a {
 .star-count {
   font-size: 2vh;
 }
+
+#search-result{
+  width: 30%;
+}
+
+.child{
+  margin: 5px;
+  border: 1px solid #dedede;
+  background-color: #F4F4F4;
+  padding: 5px;
+  font-size: 12px;
+}
+
+@media (max-width: 599px) {
+  .top-page-header{
+    font-size: 20px;
+  }
+  .main{
+    width: 100%
+  }
+}

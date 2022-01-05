@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :set_items, except: [:index, :new, :create]
+  before_action :set_items, except: [:index, :new, :create, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
@@ -41,6 +41,15 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def search
+    if params[:q]&.dig(:name)
+      squished_keywords = params[:q][:name].squish
+      params[:q][:name_cont_any] = squished_keywords.split(' ')
+    end
+    @q = Item.ransack(params[:q])
+    @items = @q.result
   end
 
   private

@@ -28,7 +28,7 @@ RSpec.describe Item, type: :model do
       it 'category_idが1だと登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を選択して下さい")
+        expect(@item.errors.full_messages).to include('商品の状態を選択して下さい')
       end
 
       it 'status_idが1だと登録できない' do

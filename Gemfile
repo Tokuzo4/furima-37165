@@ -73,3 +73,4 @@ gem 'payjp'
 gem "aws-sdk-s3", require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-i18n'
+gem 'ransack'
