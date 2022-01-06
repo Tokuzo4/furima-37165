@@ -21,7 +21,7 @@
 
 /* 購入内容の表示 */
 .buy-item-info {
-  height: 150px;
+  height: 300px;
   border-bottom: 2px solid #f5f5f5;
   display: flex;
   align-items: center;
@@ -38,6 +38,7 @@
 .buy-item-right-content {
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 }
 
 .buy-item-text {

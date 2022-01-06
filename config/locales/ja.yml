@@ -6,8 +6,24 @@ ja:
         images: 画像
         explanation: 商品の説明
         price: 価格
-        Category: カテゴリー
-        Status: 商品の状態
-        Postage: 配送料の負担
-        Prefecture: 発送元の地域
-        days_to_ship: 発送までの日数
+        category_id: カテゴリー
+        status_id: 商品の状態
+        postage_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        days_to_ship_id: 発送までの日数
+      user:
+        nickname: ニックネーム
+        birthday: 誕生日
+        last_name: 名字
+        last_name_furigana: 名字(カナ)
+        first_name: 名前
+        first_name_furigana: 名前(カナ)
+  activemodel:
+    attributes:
+      order_history_address:
+        token: クレジットカード情報
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        chome_address: 番地
+        telephone_number: 電話番号
