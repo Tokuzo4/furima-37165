@@ -324,4 +324,27 @@ a {
   .main{
     width: 100%
   }
+
+  .store-btn{
+    display: flex;
+  }
+
+  .apple-btn {
+    margin-right: 1vw;
+    height: 12vh;
+  }
+
+  .google-btn {
+    height: 10vh;
+  }
+
+  * {
+    float: none;
+    position: static;
+  }
+   
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
