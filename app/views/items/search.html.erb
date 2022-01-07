@@ -16,7 +16,7 @@
      <div class="search-field">
        <%= f.label :category_id_in, 'カテゴリ' %>
       <br>
-      <%= f.collection_check_boxes(:category_id_in, Category.where.not(id: 1), :id, :name, ) %>
+      <%= f.collection_select(:category_id_in, Category.where.not(id: 1), :id, :name, ) %>
     </div>
      <div class="search-field">
       <%= f.label :price_gteq, '価格'%>
