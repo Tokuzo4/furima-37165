@@ -30,8 +30,10 @@
   <ul class='item-lists' id="detailed-search-result">
     <% @items.each do |item| %>
       <li class='list'>
+        <%= link_to item_path(item.id), method: :get do %>
         <div class="posted-content">
           <%= image_tag item.images[0].variant(resize: '250x250') %><br>
+          <% end %>
           <%= item.name%><br>
           <%= link_to '詳細', item_path(item.id)%>
         </div>
